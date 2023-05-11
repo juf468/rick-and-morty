@@ -1,0 +1,19 @@
+.App {
+	background-image: url('./assets/background.jpeg');
+	text-align: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	height: 100vh;
+	width: 100%;
+	overflow: hidden;
+}
+.blur {
+	height: 100%;
+	width: 100%;
+	backdrop-filter: blur(2px);
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
