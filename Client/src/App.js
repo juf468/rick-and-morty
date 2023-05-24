@@ -22,8 +22,8 @@ function App() {
 	// Una variable "PASSWORD", y que sea igual a una contraseña.
 
 	const [access, setAccess] = useState(false); //valor inicial
-	const username = 'julia.franchi7@gmail.com';
-	const password = 'mipass123';
+	// const username = 'julia.franchi7@gmail.com';
+	// const password = 'mipass123';
 
 	const navigate = useNavigate(); // Esta función devuelve una función de navegación que se puede utilizar para cambiar la ubicación actual de la aplicación a una ruta específica.
 
@@ -44,7 +44,7 @@ function App() {
 			return alert('Personaje repetido');
 		}
 
-		axios(`https://rickandmortyapi.com/api/character/${id}`)
+		axios(`http://localhost:3001/rickandmorty/character/${id}`)
 			.then(({ data }) => {
 				if (data.name) {
 					setCharacters((oldChars) => [...oldChars, data]);
@@ -57,11 +57,20 @@ function App() {
 		// este onclose tiene que llegar a card pasando por cards
 	};
 	//**
+	// const login = (userData) => {
+	// 	if (userData.username === username && userData.password === password) {
+	// 		setAccess(true); //cambio el setAccess a true
+	// 		navigate('/home');
+	// 	} else alert('credenciales incorrectas'); // TIRA EL ALERT CON TRUE
+	// };
 	const login = (userData) => {
-		if (userData.username === username && userData.password === password) {
-			setAccess(true); //cambio el setAccess a true
-			navigate('/home');
-		} else alert('credenciales incorrectas'); // TIRA EL ALERT CON TRUE
+		const { username, password } = userData;
+		const URL = 'http://localhost:3001/rickandmorty/login/';
+		axios(URL + `?email=${username}&password=${password}`).then(({ data }) => {
+			const { access } = data;
+			setAccess(data);
+			access && navigate('/home');
+		});
 	};
 	const handleLogout = () => {
 		setAccess(false);

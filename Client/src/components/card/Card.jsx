@@ -5,7 +5,7 @@
 import { Link } from 'react-router-dom';
 import style from './card.module.css';
 import { connect } from 'react-redux';
-import { addFavorite, removeFavorite } from '../../Redux/actions';
+import { addFavorite, removeFav } from '../../Redux/actions';
 import { useEffect, useState } from 'react';
 
 function Card({
@@ -95,7 +95,7 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch(addFavorite(character));
 		},
 		removeFavorite: (id) => {
-			dispatch(removeFavorite(id));
+			dispatch(removeFav(id));
 		},
 	};
 };

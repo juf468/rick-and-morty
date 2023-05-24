@@ -13,7 +13,7 @@ const Detail = () => {
 	//ternario ? si secumple tatat sino tatata
 
 	useEffect(() => {
-		axios(`https://rickandmortyapi.com/api/character/${detailId}`).then(
+		axios(`http://localhost:3001/rickandmorty/character/{detailId}`).then(
 			(Response) => setCharacter(Response.data)
 		);
 	}, [detailId]);
