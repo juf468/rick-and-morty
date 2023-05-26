@@ -15,20 +15,29 @@
 let myFavorites = []; //este me sirve como copia de seguridad ya que nunca se modifica
 
 const postFav = (req, res) => {
-	const character = req.body;
+	try {
+		const character = req.body;
 
-	myFavorites.push(character);
-
-	return res.status(200).json(myFavorites);
+		myFavorites.push(character);
+		return res.status(200).json(myFavorites);
+	} catch {
+		console.error('error create favorite');
+	}
 };
 
 const deleteFav = (req, res) => {
-	const { id } = req.params; // desestructure
+	try {
+		const { id } = req.params; // desestructure
 
-	myFavorites = myFavorites.filter((fav) => fav.id !== +id);
-	return res.status(200).json(myFavorites); //En el código que has proporcionado, el operador + se utiliza para convertir el parámetro id en un número.
-	//pise el array original con el filtrado
+		const filteredFavorites = myFavorites.filter((fav) => fav.id !== id);
+		myFavorites = filteredFavorites;
+		return res.status(200).json(myFavorites); //En el código que has proporcionado, el operador + se utiliza para convertir el parámetro id en un número.
+		//pise el array original con el filtrado
+	} catch {
+		console.error('error deleting favorite');
+	}
 };
+
 module.exports = {
 	postFav,
 	deleteFav,

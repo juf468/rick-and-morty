@@ -63,7 +63,7 @@ const Favorites = () => {
 				</button>
 			</div>
 			<div className={Style.cardsContainer}>
-				{favorites.map(
+				{favorites?.map(
 					({ id, name, species, gender, origin, status, image }) => (
 						<Card
 							id={id}

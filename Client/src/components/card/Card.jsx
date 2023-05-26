@@ -43,7 +43,7 @@ function Card({
 	};
 
 	useEffect(() => {
-		myFavorites.forEach((fav) => {
+		myFavorites?.forEach((fav) => {
 			if (fav.id === id) {
 				setIsFav(true);
 			}
@@ -64,12 +64,11 @@ function Card({
 						🤍
 					</button>
 				)}
-				<button
-					onClick={hasOnClose ? () => onClose(id) : () => handleFavorite()}
-					className={style.closeButton}
-				>
-					X
-				</button>
+				{hasOnClose ? (
+					<button onClick={() => onClose(id)} className={style.closeButton}>
+						X
+					</button>
+				) : null}
 				<img className={style.image} src={image} alt="" />
 				<Link to={`/detail/${id} `}>
 					<h2 className={style.title}>{name}</h2>

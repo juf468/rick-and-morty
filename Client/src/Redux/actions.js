@@ -13,15 +13,31 @@ export const RESET = 'RESET';
 // 	};
 // };
 // export const addFav = (character) => {
+//---------con propio server----
+// export const addFavorite = (character) => {
+// 	const endpoint = 'http://localhost:3001/rickandmorty/fav';
+// 	return (dispatch) => {
+// 		axios.post(endpoint, character).then(({ data }) => {
+// 			return dispatch({
+// 				type: 'ADD_FAVORITE',
+// 				payload: data,
+// 			});
+// 		});
+// 	};
+// };
+//-------------pasado a async----------
 export const addFavorite = (character) => {
 	const endpoint = 'http://localhost:3001/rickandmorty/fav';
-	return (dispatch) => {
-		axios.post(endpoint, character).then(({ data }) => {
+	return async (dispatch) => {
+		try {
+			const { data } = await axios.post(endpoint, character);
 			return dispatch({
 				type: 'ADD_FAVORITE',
 				payload: data,
 			});
-		});
+		} catch (error) {
+			console.log(error.message);
+		}
 	};
 };
 
@@ -31,17 +47,34 @@ export const addFavorite = (character) => {
 // 		payload: id,
 // 	};
 // };
+//-----------------CON MI PROPIO SERVER------------------------------
+// export const removeFav = (id) => {
+// 	const endpoint = 'http://localhost:3001/rickandmorty/fav/' + id;
+// 	return (dispatch) => {
+// 		axios.delete(endpoint).then(({ data }) => {
+// 			return dispatch({
+// 				type: 'REMOVE_FAVORITE',
+// 				payload: data,
+// 			});
+// 		});
+// 	};
+// };
+//----------------CON ASYNC AWAIT----------------------------
 export const removeFav = (id) => {
-	const endpoint = 'http://localhost:3001/rickandmorty/fav/' + id;
-	return (dispatch) => {
-		axios.delete(endpoint).then(({ data }) => {
+	const endpoint = `http://localhost:3001/rickandmorty/fav/${id}`;
+	return async (dispatch) => {
+		try {
+			const { data } = await axios.delete(endpoint);
 			return dispatch({
 				type: 'REMOVE_FAVORITE',
 				payload: data,
 			});
-		});
+		} catch (error) {
+			console.log(error.message);
+		}
 	};
 };
+
 export const filterFavorites = (gender) => {
 	return {
 		type: 'FILTER_FAVORITES',

@@ -37,20 +37,37 @@ function App() {
 	}, [access, navigate]);
 
 	// Controla que no se puedan agregar personajes repetidos que ya se muestran en pantalla.
-	const onSearch = (id) => {
-		const characterRep = characters.find((char) => char.id === Number(id)); //USN NUMBER XQ EL ID DE CHAR CON EL ID QUE MANDO QUE DEBE SER UN NUM
+	// const onSearch = (id) => {
+	// 	const characterRep = characters.find((char) => char.id === Number(id)); //USN NUMBER XQ EL ID DE CHAR CON EL ID QUE MANDO QUE DEBE SER UN NUM
 
-		if (characterRep) {
-			return alert('Personaje repetido');
-		}
+	// 	if (characterRep) {
+	// 		return alert('Personaje repetido');
+	// 	}
 
-		axios(`http://localhost:3001/rickandmorty/character/${id}`)
-			.then(({ data }) => {
-				if (data.name) {
-					setCharacters((oldChars) => [...oldChars, data]);
+	// 	axios(`http://localhost:3001/rickandmorty/character/${id}`)
+	// 		.then(({ data }) => {
+	// 			if (data.name) {
+	// 				setCharacters((oldChars) => [...oldChars, data]);
+	// 			}
+	// 		})
+	// 		.catch(() => window.alert('¡No hay personajes con este ID!'));
+	// };
+	//------------------------------AHORA CON ASYNC!!-------------------------
+	const onSearch = async (id) => {
+		try {
+			const { data } = await axios(
+				`http://localhost:3001/rickandmorty/character/${id}`
+			);
+			if (data.name) {
+				const characterRep = characters.find((char) => char.id === data.id);
+				if (characterRep) {
+					return alert('Personaje repetido');
 				}
-			})
-			.catch(() => window.alert('¡No hay personajes con este ID!'));
+				setCharacters((oldChars) => [...oldChars, data]);
+			}
+		} catch (error) {
+			alert('¡No hay personajes con este ID!');
+		}
 	};
 	const onClose = (id) => {
 		setCharacters(characters.filter((char) => char.id !== id)); // filter no modifica el array original entonces al estado caracters le doy el array nuevo
@@ -63,14 +80,19 @@ function App() {
 	// 		navigate('/home');
 	// 	} else alert('credenciales incorrectas'); // TIRA EL ALERT CON TRUE
 	// };
-	const login = (userData) => {
-		const { username, password } = userData;
-		const URL = 'http://localhost:3001/rickandmorty/login/';
-		axios(URL + `?email=${username}&password=${password}`).then(({ data }) => {
+	const login = async (userData) => {
+		try {
+			const { username, password } = userData;
+			const URL = 'http://localhost:3001/rickandmorty/login/';
+			const { data } = await axios(
+				URL + `?email=${username}&password=${password}`
+			);
 			const { access } = data;
 			setAccess(data);
 			access && navigate('/home');
-		});
+		} catch (error) {
+			console.log(error.message);
+		}
 	};
 	const handleLogout = () => {
 		setAccess(false);
