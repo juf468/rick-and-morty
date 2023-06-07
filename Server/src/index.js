@@ -46,6 +46,7 @@
 const express = require('express');
 const server = express();
 const PORT = 3001;
+const { conn } = require('./DB_connection');
 const router = require('./routes/index');
 
 server.use(express.json());
@@ -59,9 +60,10 @@ server.use((req, res, next) => {
 	res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
 	next();
 });
-
 server.use('/rickandmorty', router); //este es mejor aca abajo para que todo el midlewore le de permiso al front para acceder a las rutas
 
-server.listen(PORT, () => {
-	console.info(`listening on port ${PORT}`);
+conn.sync({ force: true }).then(() => {
+	server.listen(PORT, () => {
+		console.info(`listening on port ${PORT}`);
+	});
 });
