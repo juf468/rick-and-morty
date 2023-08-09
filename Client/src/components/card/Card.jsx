@@ -21,7 +21,6 @@ function Card({
 	removeFavorite,
 	myFavorites,
 }) {
-	//prof : cons cars =({des, des, des, des})=>{
 	const [isFav, setIsFav] = useState(false);
 
 	const handleFavorite = () => {
@@ -69,8 +68,8 @@ function Card({
 						X
 					</button>
 				) : null}
-				<img className={style.image} src={image} alt="" />
-				<Link to={`/detail/${id} `}>
+				<Link to={`/detail/${id}`}>
+					<img className={style.image} src={image} alt="" />
 					<h2 className={style.title}>{name}</h2>
 				</Link>
 			</div>

@@ -14,11 +14,6 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_FAVORITE:
-			// return {
-			// 	...state,
-			// 	myFavorites: [...state.myFavorites, action.payload],
-			// 	allCharacters: [...state.myFavorites, action.payload],
-			// };case 'ADD_FAV':
 			return {
 				...state,
 				myFavorites: action.payload,
@@ -26,16 +21,11 @@ const rootReducer = (state = initialState, action) => {
 			};
 
 		case REMOVE_FAVORITE:
-			// const newFavorites = state.allCharacters.filter(
-			// 	(char) => char.id !== action.payload // cree esta constante al necesitar de esta funcion filter para allcaracters tmb asi simplemete remplace el myFavorites.filter
-			// 	//x allCaracters.filter (ya que este contiene a myFavorites tmb) y simplemente le agregro esa prop al obj del return
-			// );
 			return {
 				...state,
 				myFavorites: action.payload,
 				allCharacters: action.payload,
 			};
-		// return { ...state, myFavorites: action.payload };
 
 		case FILTER_FAVORITES:
 			const filtradosGenero = state.allCharacters.filter(
@@ -43,8 +33,7 @@ const rootReducer = (state = initialState, action) => {
 			);
 			return {
 				...state,
-				myFavorites: filtradosGenero, //se lo indico a myFavorite xq es lo que se ve en pantalla, allcaracter es la lista completa que no esta en pantalla
-				//me gusta esto de poner constantes con las f arriba y no hacer choclaso en el obj del estado
+				myFavorites: filtradosGenero,
 			};
 		case RESET:
 			return {

@@ -11,16 +11,16 @@ const Favorites = () => {
 
 	const dispatch = useDispatch();
 
-	const handleOrder = (e) => {
-		e.preventDefault();
+	const handleOrder = (event) => {
+		event.preventDefault();
 		setAux(!aux);
-		const { value } = e.target;
+		const { value } = event.target;
 
 		dispatch(orderFavorites(value));
 	};
-	const handleFilter = (e) => {
-		e.preventDefault();
-		const { value } = e.target;
+	const handleFilter = (event) => {
+		event.preventDefault();
+		const { value } = event.target;
 
 		dispatch(filterFavorites(value));
 	};
