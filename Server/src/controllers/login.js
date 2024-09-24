@@ -7,13 +7,18 @@ module.exports = async (req, res) => {
 			return res.status(400).send('Faltan datos');
 		}
 
-		const user = await User.findOne({ where: { email } });
+		// Buscar al usuario
+		let user = await User.findOne({ where: { email } });
+
+		// Si el usuario no existe, crearlo
 		if (!user) {
-			return res.status(404).send('Usuario no encontrado');
+			user = await User.create({ email, password });
 		}
+
+		// Verificar la contraseña
 		return user.password === password
 			? res.json({ access: true })
-			: res.status(403).send('contraseña incorrecta');
+			: res.status(403).send('Contraseña incorrecta');
 	} catch (error) {
 		return res.status(500).send(error.message);
 	}
