@@ -55,7 +55,7 @@ function App() {
 			setAccess(data);
 			access && navigate('/home');
 		} catch (error) {
-			console.log(error.message);
+			console.log("Error en la solicitud: ",error.message);
 		}
 	};
 
