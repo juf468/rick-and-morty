@@ -8,13 +8,13 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        colorBorder: "#adff2f",
-        colorText: "#ffffff",
-        colorButtonOrange:"#ffa500",
+        colorBorderForm: "#adff2f",
+        colorButtonLogin:"#ffa500",
         colorButtonCancel:"#d2691e",
-        colorButtonGreen:"#9acd32",
-        colorBlack:"#000",
         colorButtonFavorite:"#0fbf0f",
+        colorButtonTitle:"#9acd32",
+        colorWhite: "#fff",
+        colorBlack:"#000",
       },
       fontFamily:{},
       scale: {

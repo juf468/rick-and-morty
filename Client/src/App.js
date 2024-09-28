@@ -9,7 +9,6 @@ import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
 import Error from './components/Error 404/Error';
 import Favorites from './components/ Favorites/ Favorites';
-
 import imgbg from "./assets/background.jpeg"
 
 function App() {

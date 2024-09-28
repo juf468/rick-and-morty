@@ -70,7 +70,7 @@ function Card({
 				) : null}
 				<Link to={`/detail/${id}`}>
 					<img className="hover:transform hover:transition-transform hover:duration-500 hover:ease hover:rotate-360 rounded-full w-[200px] h-[200px] border-[4px] border-colorBlack" src={image} alt="" />
-					<h2 className=" absolute left-0 right-0 -bottom-10 bg-colorButtonGreen p-2 text-colorBlack w-[100px] m-auto text-shadow-white rounded-lg">{name}</h2>
+					<h2 className="absolute left-0 right-0 -bottom-10 bg-colorButtonTitle p-2 text-colorBlack w-[100px] m-auto text-shadow-white rounded-lg">{name}</h2>
 				</Link>
 			</div>
 			<div className='text-shadow-md mt-12 w-[200px]'>
