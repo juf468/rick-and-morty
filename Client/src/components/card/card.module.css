@@ -1,18 +1,18 @@
 .container {
-	/* width: 33%; */
-	/* color: white; */
-	/* text-shadow: 0px 0px 4px black; */
-	/* margin: 24px 0; */
-	/* background-color: transparent; */
+	width: 33%;
+	color: white;
+	text-shadow: 0px 0px 4px black;
+	margin: 24px 0;
+	background-color: transparent;
 }
 
-/* .imageContainer {
+.imageContainer {
 	position: relative;
 	width: fit-content;
 	margin: 0 auto;
 	margin-bottom: 30px;
-} */
-/* .closeButton {
+}
+.closeButton {
 	position: absolute;
 	top: 14px;
 	right: 7px;
@@ -26,12 +26,12 @@
 	text-align: center;
 	cursor: pointer;
 	z-index: 100;
-} */
+}
 
-/* .closeButton:hover {
+.closeButton:hover {
 	transform: scale(1.4);
 	transition: transform 0.2s ease-in-out;
-} */
+}
 
 .title {
 	position: absolute;

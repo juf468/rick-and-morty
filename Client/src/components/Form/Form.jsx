@@ -29,7 +29,7 @@ const Form = ({ login }) => {
 	//ONSUBMITH RECIBE EL EVENTO DEL BOTON X SUBMITHANDLER
 	//ONSUBMIT Y PREVENTDEFAULT SON SOLO PARA HACER FORMULARIOS!!
 	return (
-		<form onSubmit={submitHandler} className="flex flex-col absolute z-10 justify-center border border-colorBorder bg-[#00000033] rounded-2xl px-16 py-12 gap-4">
+		<form onSubmit={submitHandler} className="flex flex-col absolute z-10 justify-center  border border-colorBorder bg-[#00000033] rounded-2xl px-16 py-12 gap-4">
 			<div>
 				<label className="text-colorText font-bold mr-2" htmlFor="username">
 					Username:

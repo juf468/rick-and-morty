@@ -10,6 +10,8 @@ import Form from './components/Form/Form';
 import Error from './components/Error 404/Error';
 import Favorites from './components/ Favorites/ Favorites';
 
+import imgbg from "./assets/background.jpeg"
+
 function App() {
 	const [characters, setCharacters] = useState([]);
 	const { pathname } = useLocation();
@@ -65,7 +67,8 @@ function App() {
 	};
 
 	return (
-		<div className="App">
+		<div className="text-center h-screen">
+			<img src={imgbg} className='-z-10 flex fixed h-[100vh]'/>
 			<div className="flex flex-col h-full w-full items-center justify-center overflow-y-auto">
 				{pathname !== '/' && (
 					<NavBar

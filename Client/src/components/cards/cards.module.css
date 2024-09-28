@@ -4,4 +4,6 @@
 	flex-wrap: wrap;
 	background-color: transparent;
 	width: 100%;
+	position: absolute;
+	top: 160px;
 }

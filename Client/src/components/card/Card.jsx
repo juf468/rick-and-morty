@@ -52,7 +52,7 @@ function Card({
 	const hasOnClose = typeof onClose === 'function';
 
 	return (
-		<div className="text-colorText -mt-16 flex flex-col">
+		<div className="text-colorText mx-16 my-10 flex flex-col">
 			<div className="relative">
 				{isFav ? (
 					<button onClick={handleFavorite} className="absolute top-[14px] left-[7px] border-colorBlack border rounded-full w-10 h-10 hover:transform hover:scale-140 hover:transition-transform hover:duration-200 hover:ease-in-out">
