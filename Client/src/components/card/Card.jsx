@@ -52,31 +52,33 @@ function Card({
 	const hasOnClose = typeof onClose === 'function';
 
 	return (
-		<div className={style.container}>
-			<div className={style.imageContainer}>
+		<div className="text-colorText -mt-16 flex flex-col">
+			<div className="relative">
 				{isFav ? (
-					<button onClick={handleFavorite} className={style.heartButton}>
+					<button onClick={handleFavorite} className="absolute top-[14px] left-[7px] border-colorBlack border rounded-full w-10 h-10 hover:transform hover:scale-140 hover:transition-transform hover:duration-200 hover:ease-in-out">
 						❤️
 					</button>
 				) : (
-					<button onClick={handleFavorite} className={style.heartButton}>
+					<button onClick={handleFavorite} className="absolute top-[14px] left-[7px] z-10 border-colorBlack border-[4px] rounded-full w-10 h-10 bg-colorButtonFavorite text-xl hover:transform hover:scale-140 hover:transition-transform hover:duration-200 hover:ease-in-out">
 						🤍
 					</button>
 				)}
 				{hasOnClose ? (
-					<button onClick={() => onClose(id)} className={style.closeButton}>
+					<button onClick={() => onClose(id)} className="absolute top-[14px] right-[7px] bg-colorButtonCancel font-bold w-10 h-10 rounded-full border-[4px] border-colorBlack text-xl z-10 hover:transform hover:scale-140 hover:transition-transform hover:duration-200 hover:ease-in-out">
 						X
 					</button>
 				) : null}
 				<Link to={`/detail/${id}`}>
-					<img className={style.image} src={image} alt="" />
-					<h2 className={style.title}>{name}</h2>
+					<img className="hover:transform hover:transition-transform hover:duration-500 hover:ease hover:rotate-360 rounded-full w-[200px] h-[200px] border-[4px] border-colorBlack" src={image} alt="" />
+					<h2 className=" absolute left-0 right-0 -bottom-10 bg-colorButtonGreen p-2 text-colorBlack w-[100px] m-auto text-shadow-white rounded-lg">{name}</h2>
 				</Link>
 			</div>
-			<p className={style.text}>⚰️ Status: {status}</p>
-			<p className={style.text}>👽️ Species: {species}</p>
-			<p className={style.text}>🍑 Gender: {gender}</p>
-			<p className={style.text}>🌎 Origin: {origin}</p>
+			<div className='text-shadow-md mt-12 w-[200px]'>
+				<p className="font-bold">⚰️ Status: {status}</p>
+				<p className="font-bold">👽️ Species: {species}</p>
+				<p className="font-bold">🍑 Gender: {gender}</p>
+				<p className="font-bold">🌎 Origin: {origin}</p>
+			</div>
 		</div>
 	);
 }

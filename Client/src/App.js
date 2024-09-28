@@ -66,7 +66,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<div className="blur">
+			<div className="flex flex-col h-full w-full items-center justify-center overflow-y-auto">
 				{pathname !== '/' && (
 					<NavBar
 						onSearch={onSearch}
@@ -77,7 +77,7 @@ function App() {
 				<Routes>
 					<Route path="*" element={<Error />} />
 					<Route path="/favorites" element={<Favorites />} />
-					<Route path="/" element={<Form login={login} />} />
+					<Route path="/" element={<Form login={login} />}/>
 					<Route
 						path="/home"
 						element={<Cards characters={characters} onClose={onClose} />}

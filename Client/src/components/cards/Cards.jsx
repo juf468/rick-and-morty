@@ -18,7 +18,7 @@ export default function Cards({ characters, onClose }) {
 	return (
 		<div className={style.contenedor}>
 			{characters.map(
-				({ id, name, species, gender, origin, status, image }) => {
+				({ id, name, species, gender, origin, status, image,className }) => {
 					return (
 						<Card
 							id={id}
@@ -30,6 +30,7 @@ export default function Cards({ characters, onClose }) {
 							status={status}
 							image={image}
 							onClose={onClose}
+							className={className}
 						/>
 					);
 				}

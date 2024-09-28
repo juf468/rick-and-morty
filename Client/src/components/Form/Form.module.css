@@ -1,11 +1,11 @@
 .container {
 	display: flex;
 	margin: auto;
-	border: 4px solid greenyellow;
+	border: 4px solid #adff2f;
 	flex-direction: column;
 	padding: 4rem 4rem 2rem 4rem;
 	border-radius: 14px;
-	background-color: rgb(0, 0, 0, 0.2);
+	background-color: #00000033;
 }
 
 .label {
@@ -23,13 +23,13 @@
 }
 
 .button {
-	border-radius: 14px;
+	/* border-radius: 14px; */
 	font-size: 24px;
-	padding: 8px 0;
+	/* padding: 8px 0; */
 	text-decoration: none;
 	font-weight: bold;
-	border: 4px solid black;
-	background-color: orange;
+	/* border: 4px solid black; */
+	/* background-color: #ffa500; */
 	margin-top: 2rem;
-	cursor: pointer;
+	/* cursor: pointer; */
 }
