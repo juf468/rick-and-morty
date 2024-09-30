@@ -15,6 +15,7 @@ module.exports = {
         colorButtonTitle: "#9acd32",
         colorWhite: "#fff",
         colorBlack: "#000",
+        customDarkBlue: "rgb(25, 38, 63)",
       },
       fontFamily: {},
       scale: {
