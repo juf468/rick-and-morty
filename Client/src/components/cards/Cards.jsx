@@ -13,8 +13,8 @@ import Card from '../card/Card';
 
 
 //=>> el array
-export default function Cards({ characters,}) {
-	const onClose = () => window.alert('Emulamos que se cierra la card');
+export default function Cards({ characters,onClose}) {
+	// const onClose = () => window.alert('Emulamos que se cierra la card');
 	return (
 		<div className=' flex justify-evenly flex-wrap bg-transparent w-full absolute top-40' >
 			{characters.map(
