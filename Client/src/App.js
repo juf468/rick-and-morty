@@ -1,4 +1,4 @@
-import './App.css';
+
 import About from './components/About/About';
 import Cards from './components/cards/Cards';
 import NavBar from './components/NavBar/NavBar';
@@ -67,7 +67,8 @@ function App() {
 
 	return (
 		<div className="text-center h-screen">
-			<img src={imgbg} className='-z-10 flex fixed h-[100vh]'/>
+			<img src={imgbg} alt="fondo" className="-z-10 fixed top-0 left-0 w-full h-full object-cover" />
+
 			<div className="flex flex-col h-full w-full items-center justify-center overflow-y-auto">
 				{pathname !== '/' && (
 					<NavBar

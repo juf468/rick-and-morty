@@ -7,16 +7,16 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors:{
+      colors: {
         colorBorderForm: "#adff2f",
-        colorButtonLogin:"#ffa500",
-        colorButtonCancel:"#d2691e",
-        colorButtonFavorite:"#0fbf0f",
-        colorButtonTitle:"#9acd32",
+        colorButtonLogin: "#ffa500",
+        colorButtonCancel: "#d2691e",
+        colorButtonFavorite: "#0fbf0f",
+        colorButtonTitle: "#9acd32",
         colorWhite: "#fff",
-        colorBlack:"#000",
+        colorBlack: "#000",
       },
-      fontFamily:{},
+      fontFamily: {},
       scale: {
         '140': '1.4',
       },
@@ -29,4 +29,3 @@ module.exports = {
     require('tailwindcss-textshadow'),
   ],
 }
-
