@@ -29,34 +29,38 @@ const Form = ({ login }) => {
 	//ONSUBMITH RECIBE EL EVENTO DEL BOTON X SUBMITHANDLER
 	//ONSUBMIT Y PREVENTDEFAULT SON SOLO PARA HACER FORMULARIOS!!
 	return (
-		<form onSubmit={submitHandler} className={Style.container}>
+		<form onSubmit={submitHandler} className="flex flex-col absolute z-10 justify-center border-[4px] border-colorBorderForm bg-[#00000033] rounded-2xl px-16 py-12 gap-4">
 			<div>
-				<label className={Style.label} htmlFor="username">
-					Username:
-				</label>
-				<input
-					className={Style.input}
-					type="text"
-					name="username"
-					value={userData.username}
-					onChange={handleInputChange}
-				/>
-				<p style={{ color: 'white' }}>{errors.username}</p>
+				<div className='flex items-end'>
+					<label className="text-colorWhite font-bold mr-2" htmlFor="username">
+						Username:
+					</label>
+					<input
+						className="rounded-xl h-6 px-2 py-3.5 outline-none"
+						type="text"
+						name="username"
+						value={userData.username}
+						onChange={handleInputChange}
+					/>
+				</div>
+				<p className='text-white'>{errors.username}</p>
 			</div>
 			<div>
-				<label className={Style.label} htmlFor="password">
-					Password:
-				</label>
-				<input
-					className={Style.input}
-					type="text"
-					name="password"
-					value={userData.password}
-					onChange={handleInputChange}
-				/>
-				<p style={{ color: 'white' }}>{errors.password}</p>
+				<div className='flex items-end'>
+					<label className="text-colorWhite font-bold mr-2" htmlFor="password">
+						Password:
+					</label>
+					<input
+						className="rounded-xl h-6 px-2 py-3.5 outline-none"
+						type="text"
+						name="password"
+						value={userData.password}
+						onChange={handleInputChange}
+					/>
+				</div>
+				<p className='text-colorWhite'>{errors.password}</p>
 			</div>
-			<button className={Style.button}>Login</button>
+			<button className="bg-colorButtonLogin rounded-2xl border-[4px] border-black py-2 text-2xl font-bold mt-6">Login</button>
 		</form>
 	);
 };
