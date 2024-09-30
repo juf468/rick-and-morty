@@ -54,7 +54,7 @@ function Card({
 		<div className="text-colorText mx-16 my-10 flex flex-col">
 			<div className="relative">
 				{isFav ? (
-					<button onClick={handleFavorite} className="absolute top-[14px] left-[7px] border-colorBlack border rounded-full w-10 h-10 hover:transform hover:scale-140 hover:transition-transform hover:duration-200 hover:ease-in-out">
+					<button onClick={handleFavorite} className="absolute top-[14px] left-[7px] border-colorBlack border-[4px] rounded-full w-10 h-10 hover:transform hover:scale-140 hover:transition-transform hover:duration-200 hover:ease-in-out  bg-colorButtonFavorite">
 						❤️
 					</button>
 				) : (
