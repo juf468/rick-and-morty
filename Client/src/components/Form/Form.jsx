@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import validation from './Validation';
-import Style from './Form.module.css';
+
 
 const Form = ({ login }) => {
 	//paso la funcion loging por props

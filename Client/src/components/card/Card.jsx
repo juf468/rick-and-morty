@@ -3,7 +3,6 @@
 //no uso adeventlistener xq eso es del dom, react lo hace solo
 //para el id ejecutando onclosdse (read 08)
 import { Link } from 'react-router-dom';
-import style from './card.module.css';
 import { connect } from 'react-redux';
 import { addFavorite, removeFav } from '../../Redux/actions';
 import { useEffect, useState } from 'react';
