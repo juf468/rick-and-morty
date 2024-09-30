@@ -2,13 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import Card from '../card/Card';
 import { filterFavorites, orderFavorites, reset } from '../../Redux/actions';
 import { useState } from 'react';
-import Style from './Favourites.module.css';
+
 
 const Favorites = () => {
 	const favorites = useSelector((state) => state.myFavorites);
-
 	const [aux, setAux] = useState(false);
-
 	const dispatch = useDispatch();
 
 	const handleOrder = (event) => {
@@ -29,13 +27,13 @@ const Favorites = () => {
 	};
 
 	return (
-		<div className={Style.container}>
-			<div className={Style.selectContainer}>
+		<div className="max-h-screen flex flex-col">
+			<div className=" flex justify-center mb-4 top-10 mt-20">
 				<select
 					onChange={handleOrder}
 					name="order"
 					defaultValue={'DEFAULT'}
-					className={Style.select}
+					className='cursor-pointer text-xl font-bold bg-colorButtonLogin text-black border-4 border-solid border-black text-md rounded-xl p-6 mx-2 focus:outline-none'
 				>
 					<option value="DEFAULT" disabled>
 						Select Order
@@ -47,7 +45,7 @@ const Favorites = () => {
 					onChange={handleFilter}
 					name="filter"
 					defaultValue={'DEFAULT'}
-					className={Style.select}
+					className='cursor-pointer text-xl font-bold bg-colorButtonLogin text-black border-4 border-solid border-black text-md rounded-xl p-6 mx-2 focus:outline-none'
 				>
 					<option value="DEFAULT" disabled>
 						Select filter
@@ -58,11 +56,11 @@ const Favorites = () => {
 					<option value="unknow">unknow</option>
 				</select>
 
-				<button onClick={resetButton} className={Style.button}>
+				<button onClick={resetButton} className='min-w-[20] mx-2 p-6 border-solid border-colorBorderForm border-4 rounded-xl underline-none text-white bg-transparent font-bold text-xl cursor-pointer hover:border-white transition-transform ease-in-out duration-200'>
 					RESET
 				</button>
 			</div>
-			<div className={Style.cardsContainer}>
+			<div className='flex flex-wrap'>
 				{favorites?.map(
 					({ id, name, species, gender, origin, status, image }) => (
 						<Card
@@ -81,4 +79,5 @@ const Favorites = () => {
 		</div>
 	);
 };
+
 export default Favorites;

@@ -21,7 +21,7 @@ const NavBar = (props) => {
 	};
 
 	return (
-		<div className='bg-transparent flex p-6 absolute top-0 w-full'>
+		<div className='bg-transparent flex p-6 top-0 w-full fixed  z-50 '>
 			<div className='flex items-center justify-between mr-auto w-full'>
 				<div className='flex'>
 					<Link to="/about" className='min-w-[80px] my-0 mx-2 p-3.5 border-4 border-colorBorderForm rounded-xl no-underline text-white font-bold text-2xl cursor-pointer
