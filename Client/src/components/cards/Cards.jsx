@@ -10,13 +10,13 @@
 // el return del map es el mas traicionero siempre ponerlo antes  de comenzar con la transformacion de
 
 import Card from '../card/Card';
-import style from './cards.module.css';
+
 
 //=>> el array
-export default function Cards({ characters, onClose }) {
+export default function Cards({ characters,onClose}) {
 	// const onClose = () => window.alert('Emulamos que se cierra la card');
 	return (
-		<div className={style.contenedor}>
+		<div className=' flex justify-evenly flex-wrap bg-transparent w-full absolute top-40' >
 			{characters.map(
 				({ id, name, species, gender, origin, status, image,className }) => {
 					return (
