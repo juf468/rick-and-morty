@@ -1,7 +1,6 @@
 import About from "./components/About/About";
 import Cards from "./components/cards/Cards";
 import NavBar from "./components/NavBar/NavBar";
-import axios from "axios"; // es una libreria x eso no {}
 import { useEffect, useState } from "react";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Detail from "./components/Detail/Detail";
