@@ -1,4 +1,4 @@
-import './App.css';
+
 import About from './components/About/About';
 import Cards from './components/cards/Cards';
 import NavBar from './components/NavBar/NavBar';
@@ -9,6 +9,7 @@ import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
 import Error from './components/Error 404/Error';
 import Favorites from './components/ Favorites/ Favorites';
+import imgbg from "./assets/background.jpeg"
 
 function App() {
 	const [characters, setCharacters] = useState([]);
@@ -55,7 +56,7 @@ function App() {
 			setAccess(data);
 			access && navigate('/home');
 		} catch (error) {
-			console.log(error.message);
+			console.log("Error en la solicitud: ",error.message);
 		}
 	};
 
@@ -65,8 +66,10 @@ function App() {
 	};
 
 	return (
-		<div className="App">
-			<div className="blur">
+		<div className="text-center h-screen">
+			<img src={imgbg} alt="fondo" className="-z-10 fixed top-0 left-0 w-full h-full object-cover" />
+
+			<div className="flex flex-col h-full w-full items-center justify-center overflow-y-auto">
 				{pathname !== '/' && (
 					<NavBar
 						onSearch={onSearch}
@@ -77,7 +80,7 @@ function App() {
 				<Routes>
 					<Route path="*" element={<Error />} />
 					<Route path="/favorites" element={<Favorites />} />
-					<Route path="/" element={<Form login={login} />} />
+					<Route path="/" element={<Form login={login} />}/>
 					<Route
 						path="/home"
 						element={<Cards characters={characters} onClose={onClose} />}
