@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import Card from '../card/Card';
+import Card from '../card/Card'
 import { filterFavorites, orderFavorites, reset } from '../../Redux/actions';
 import { useState } from 'react';
 

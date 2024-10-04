@@ -10,6 +10,7 @@ import Form from './components/Form/Form';
 import Error from './components/Error 404/Error';
 import Favorites from './components/ Favorites/ Favorites';
 import imgbg from "./assets/background.jpeg"
+import {getCharacterById} from './Services/Get/getCharacter.ts'
 
 function App() {
 	const [characters, setCharacters] = useState([]);
@@ -26,9 +27,8 @@ function App() {
 
 	const onSearch = async (id) => {
 		try {
-			const { data } = await axios(
-				`http://localhost:3001/rickandmorty/character/${id}`
-			);
+			const data = await getCharacterById(id);
+			
 			if (data.name) {
 				const characterRep = characters.find((char) => char.id === data.id);
 				if (characterRep) {
