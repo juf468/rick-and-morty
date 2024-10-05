@@ -1,21 +1,22 @@
-import About from "./components/About/About";
-import Cards from "./components/cards/Cards";
-import NavBar from "./components/NavBar/NavBar";
+import About from "./components/About/About.tsx";
+import Cards from "./components/cards/Cards.tsx";
+import NavBar from "./components/NavBar/NavBar.tsx";
 import { useEffect, useState } from "react";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import Detail from "./components/Detail/Detail";
-import Form from "./components/Form/Form";
-import Error from "./components/Error 404/Error";
-import Favorites from "./components/ Favorites/ Favorites";
+import Detail from "./components/Detail/Detail.tsx";
+import Form from "./components/Form/Form.tsx";
+import Error from "./components/Error 404/Error.tsx";
+import Favorites from "./components/ Favorites/Favorites.tsx";
 import imgbg from "./assets/background.jpeg";
 import { getCharacterById } from "./Services/Get/getCharacter.ts";
 import { loginUser } from "./Services/Get/getUser.ts";
+import { Character, UserDataApp  } from "./models/interface.ts"
 
 function App() {
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState<Character[]>([]);
   const { pathname } = useLocation();
-  const [access, setAccess] = useState(false);
-
+  const [access, setAccess] = useState<boolean>(false);
+  
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,9 +25,11 @@ function App() {
     }
   }, [access, navigate]);
 
-  const onSearch = async (id) => {
+  const onSearch = async (id: string | number) => {
     try {
-      const data = await getCharacterById(id);
+      const stringId = String(id);
+      const response = await getCharacterById(stringId);
+      const data = response.data;
 
       if (data.name) {
         const characterRep = characters.find((char) => char.id === data.id);
@@ -40,11 +43,11 @@ function App() {
     }
   };
 
-  const onClose = (id) => {
+  const onClose = (id: number) => {
     setCharacters(characters.filter((char) => char.id !== id));
   };
 
-  const login = async (userData) => {
+  const login = async (userData: UserDataApp) => {
     try {
       const { username, password } = userData;
       const data = await loginUser(username, password);
@@ -55,7 +58,7 @@ function App() {
         navigate("/home");
       }
     } catch (error) {
-      console.log("Error en la solicitud: ", error.message);
+      console.log("Error en la solicitud: ", error);
     }
   };
 
