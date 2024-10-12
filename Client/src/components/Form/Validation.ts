@@ -9,7 +9,9 @@
 // la contraseña tiene que tener una longitud entre 6 y 10 caracteres.
 //EL VALIDADOR NO PUEDE MODIFICAR LA DATA
 
-const validation = (userData, errors, setErrors) => {
+import { UserData, Errors } from "../../models/interface"
+
+const validation = ( userData: UserData, errors: Errors, setErrors: React.Dispatch<React.SetStateAction<Errors>>) => {
 	// creo la funcion y le paso  userdata, errors (del estado que acabo de crear)y el setErrosrs
 	//=>> que es la funcion del usestate de errors  x arg porque es lo que busco validar
 	//validacion del username :
@@ -17,13 +19,13 @@ const validation = (userData, errors, setErrors) => {
 	if (!userData.username) {
 		return setErrors({
 			...errors,
-			username: 'por favor completa este campo',
+			username: 'Por favor completa este campo',
 		});
 	}
 	if (userData.username.length > 35) {
 		return setErrors({
 			...errors,
-			username: 'no puede superar los 35 caracteres',
+			username: 'No puede superar los 35 caracteres',
 		});
 	}
 
@@ -40,14 +42,14 @@ const validation = (userData, errors, setErrors) => {
 	// if (!/^(?=.*\d).{6,10}$/.test(userData.password)) {
 	// 	return setErrors({ ...errors, password: 'debe tener al menos un numero' });
 	// }
-	if (!userData.password.length < 6 || userData.password.length > 10) {
+	if (userData.password.length < 6 || userData.password.length > 10) {
 		return setErrors({
 			...errors,
-			password: 'debe tener entre 6 y 10 caracteres',
+			password: 'Debe tener entre 6 y 10 caracteres',
 		});
 	}
 	if (!/\d/.test(userData.password)) {
-		return setErrors({ ...errors, password: 'debe tener al menos un numero' });
+		return setErrors({ ...errors, password: 'Debe tener al menos un numero' });
 	}
 	return setErrors({ ...errors, password: '' });
 };
